@@ -1,0 +1,100 @@
+*,
+::after,
+::before{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+main{
+  width: 95%;
+  margin: auto;
+}
+
+span, input {
+  width: 100%;
+
+}
+li{
+  list-style: none;
+}
+.adicionar-botao{
+  display: flex;
+  justify-content: space-between;
+  margin: 12px 0;
+  font-size: 16px;
+}
+
+.tarefa{
+  margin-bottom: 4px;
+}
+.conteudo-tarefa{
+  font-size: 22px;
+  text-align: center;
+}
+.inputs{
+  display: flex;
+  flex-direction: column;
+}
+
+.lista{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 15px;
+}
+.lista-dados{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  
+}
+.table-header{
+  display: none;
+  flex-direction: row;
+  margin-top: 15px;
+  background: #F8F9FA;
+}
+.column{
+  max-width: 25%;
+}
+#float-input{
+  margin-top: 20px;
+  height: 30px;
+  padding-left: 5px;
+}
+.wrapper{
+  display: flex;
+  flex-direction: column-reverse;
+}
+@media screen and (min-width:800px){
+  main{
+    width: 40%;
+  }
+  .inputs{
+    flex-direction: row;
+  }
+
+  .lista{
+    margin-top: 10px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    align-content: space-between;
+  }
+  .input-label{
+    margin-left: 5px;
+  }
+  .table-header{
+    display: flex;
+    visibility: visible;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .row-data{
+    display: none;
+  }
+  .items{
+    text-align: right;
+  }
+  
+}

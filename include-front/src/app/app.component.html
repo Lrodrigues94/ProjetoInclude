@@ -1,0 +1,91 @@
+<main>
+  <p-tabView (onChange)="atualizarGrafico()">
+    <p-tabPanel header="Descrição">
+
+      <p-card>
+
+        
+        <form #tarefaForm="ngForm" (ngSubmit)="adicionar(tarefaForm)">
+          <div class="adicionar-botao">
+            <p-button label="Adicionar" type="submit" icon="pi pi-plus"></p-button>
+            
+            <p-calendar [(ngModel)]="value"  [inline]="true" dateFormat="MM.y" ></p-calendar>
+          </div>
+          
+          <div class='inputs'> 
+            
+            <span class="p-float-label input-label">
+              <input type="date" id="float-input" pIputText name="data" ngModel placeholder="Data">
+            </span>
+            
+            <span class="p-float-label input-label">
+              <input type="text" id="float-input" pIputText name="descricao" ngModel placeholder="Descrição">
+            </span>
+
+            <span class="p-float-label input-label">
+              <input type="number" min="0"  id="float-input" pIputText name="valor" ngModel placeholder="Valor">
+            </span>
+          </div>
+          
+          <p-table>
+            <ng-template pTemplate="header">
+                <tr class='table-header'>
+                    <th class="column">Data</th>
+                    <th class="column">Descrição</th>
+                    <th class="column">Tipo</th>
+                    <th class="column">Valor</th>
+                </tr>
+            </ng-template>
+
+          </p-table>
+
+          </form>
+
+        <div class="tarefa" *ngFor="let tarefa of tarefas">
+
+                  <ul class="lista">
+                    <div class="lista-dados">
+                      <th class="column row-data">Data</th>
+                      <li class="items">{{converterData(tarefa.data)}}</li>
+                    </div>
+                    <div class="lista-dados">
+                      <th class="column row-data">Descrição</th>
+                      <li class="items">{{tarefa.descricao}}</li>
+                    </div>
+
+                    <div class="lista-dados">
+                      <th class="column row-data">Tipo</th>
+                      <li class="items">
+                      <p-selectButton
+                        [options]="opcoes"
+                        optionLabel="rotulo"
+                        optionValue="valor"
+                        [(ngModel)]="tarefa.tipo"
+                        (onChange)="atualizar(tarefa)">
+                      </p-selectButton>
+
+                      </li>
+                    </div>
+                    <div class="lista-dados">
+                      <th class="column row-data">Valor</th>
+                      <li class="items">{{tarefa.valor}}</li>
+                    </div>
+                  </ul>
+        </div>
+
+      </p-card>
+
+    </p-tabPanel>
+
+    <p-tabPanel header="Gráfico">
+
+      <p-chart type="doughnut" [data]="dados"></p-chart>
+
+    </p-tabPanel>
+  </p-tabView>
+</main>
+
+
+
+
+
